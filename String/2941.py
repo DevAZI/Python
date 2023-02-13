@@ -1,11 +1,7 @@
-#미완
-arr = ["c=", "c-","dz=","d-","lj","nj","s=","z="]
+croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 a = input()
-count =0
-for i in range(len(arr)):
-    if a.find(arr[i]) != -1:
-        a= a.replace(arr[i], '')      
-        count +=1
-print(count)
-print(a)
-print(count+len(a))
+
+for i in croatia :
+    a = a.replace(i, '*') #처음에는 빈칸으로 했었다. 그러니 다른 크로아티아 문장이 생길 수 도 있게 되어, 다른 문자로 변경하고, 개수를 셀수 있게끔 변경
+    
+print(len(a))
