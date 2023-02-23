@@ -1,17 +1,13 @@
-#다시
+import sys
+input = sys.stdin.readline
+
 cnt = int(input())
 
 arr = list(map(int, input().split()))
 
-print(arr) 
+arr2 = sorted(list(set(arr)))
 
-arr.sort(reverse=True)
+dic = {arr2[i] : i for i in range(len(arr2))}
 
-#값이 같을경우
-for i in range(cnt):
-    if arr[i] == arr[i+1]:
-        print(arr[i])
-        continue
-    else: print(arr[i])
-
-
+for i in arr:
+    print(dic[i], end = ' ')
