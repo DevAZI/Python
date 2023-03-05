@@ -1,21 +1,17 @@
-#미완
-cnt = int(input())
+n = int(input())
 arr = []
-arr2 = []
-count =0
-for i in range(cnt):
+
+for i in range(n):    
     arr.append(list(map(int, input().split())))
 
-arr.sort()
-for i in range(cnt):
-    arr2.append(arr[i][1] - arr[i][0]) 
-    
-        
-    
 
+arr.sort(key = lambda x: x[1])
 
-print(f"{arr} \n {arr2}")
-print(count)
+cnt = 1
+end = arr[0][1]
+for i in range(1, n):
+    if arr[i][0] >= end:
+        cnt += 1
+        end = arr[i][1]
 
-
-
+print(cnt)
