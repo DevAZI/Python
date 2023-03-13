@@ -1,30 +1,42 @@
-#미완
-def merge_sort(arr):    
-    if len(arr) <= 1:   
-        return arr  # 요소가 1개 이하인경우 이미 정렬 되있기에 반환
-
-    mid = len(arr) // 2     
-    left_half = arr[:mid]   #왼쪽 이랑 오른쪽으로 나눠서 그냥 가운대를 나눠서 만듬
-    right_half = arr[mid:]
-
-    left_half = merge_sort(left_half)  
-    right_half = merge_sort(right_half)
-
-    return merge(left_half, right_half)     #왼쪽과 남
-
-def merge(left, right):
-    result = []
-
-    while left and right:
-        if left[0] <= right[0]:
-            result.append(left.pop(0))
+import sys
+input = sys.stdin.readline
+def merge_sort(L):
+    if len(L) == 1:
+        return L
+    
+    mid = (len(L)+1)//2
+   
+    left = merge_sort(L[:mid])
+    right = merge_sort(L[mid:])
+    
+    i,j = 0,0
+    L2 = []
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            L2.append(left[i])
+            ans.append(left[i])
+            i+=1
         else:
-            result.append(right.pop(0))
+            L2.append(right[j])
+            ans.append(right[j])
+            j+=1
+    while i < len(left):
+        L2.append(left[i])
+        ans.append(left[i])
+        i+=1
+    while j < len(right):
+        L2.append(right[j])
+        ans.append(right[j])
+        j+=1
+    
+    return L2
 
-    while left:
-        result.append(left.pop(0))
+n, k = map(int,input().split())
+a = list(map(int,input().split()))
+ans = []
+merge_sort(a)
 
-    while right:
-        result.append(right.pop(0))
-
-    return result 
+if len(ans) >= k:
+    print(ans[k-1])
+else:
+    print(-1)
