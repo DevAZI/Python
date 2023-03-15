@@ -1,4 +1,4 @@
-#미완
+
 def Rstar(n):
     if n==1:
         return ['*']
