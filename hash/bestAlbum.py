@@ -7,3 +7,18 @@
 #> 그럼 이중 DIc이 가능한가
 #장르 : {고유번호 : 플레이횟수} 이렇게 하면 될것같을지도
 
+def solution(genres, plays):
+    #재생수 
+    playCount = {}
+    for i in range(len(genres)):
+        if genres[i] in playCount:
+            playCount[genres[i]]  += plays[i]
+        else:
+            playCount[genres[i]] = plays[i]
+    
+
+    print(playCount)
+
+solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500])
+    
+    
