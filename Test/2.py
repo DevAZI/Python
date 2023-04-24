@@ -18,10 +18,19 @@ result = 0
 # print(result)
 resultMax = 0
 #값이 낮아지는 부분 까지에서 min값이랑 max값이랑 비교하기
+start = -1
 for i in range(a):
+    
+    
     if arr[i] > arr[i+1]:
+        #start를 만들어내야함지금
+
+            
+
+
         minResult = min(arr[:i+1])      ##  여기 수정필요
         maxResult = max(arr[:i+1])      #여기를 값이 낮아지는 구간전부터 후까지 각 값을 해서 하면 될듯 [x:y]이런게 된다면 이런식으로 진행해보자
+
 
         print(f"min: {minResult}")
         print(f"max: {maxResult}")
